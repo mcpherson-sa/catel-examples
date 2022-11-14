@@ -1,0 +1,42 @@
+﻿<catel:Window x:Class="Catel.Examples.Validation.Views.MainWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:catel="http://schemas.catelproject.com"
+              ShowInTaskbar="True" ResizeMode="NoResize"
+              Icon="/Resources/Icons/Catel.ico">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0">
+            <TextBlock TextWrapping="Wrap">
+                This demo applications shows the different types of validation that are available in Catel. Each demo has its own models and view 
+                models with the corresponding names so it should be fairly easy to find the code per example.
+                <LineBreak />
+                <LineBreak />
+                At first sight, you won't see a difference, but each button shows a different kind of validation (which shows how flexible and
+                powerful the validation mechanism in Catel is).
+            </TextBlock>
+        </Label>
+
+        <CheckBox Grid.Row="1" IsChecked="{Binding EnableDeferValidationUntilFirstSave}" Content="Defer validation until first save" />
+        
+        <Button Grid.Row="2" Command="{Binding OpenValidationViaValidateMethods}" Content="Validation in view model via Validate methods" />
+        <Button Grid.Row="3" Command="{Binding OpenValidationViaDataAnnotations}" Content="Validation in view model via data annotations (attributes)" />
+        <Button Grid.Row="4" Command="{Binding OpenValidationInModel}" Content="Validation in model" />
+        <Button Grid.Row="5" Command="{Binding OpenValidationInIValidator}" Content="Validation in IValidator" />
+    </Grid>
+    
+</catel:Window>
