@@ -3,6 +3,7 @@
 
 # SM - check this
 .vs/ 
+tools
 
 # User-specific files
 *.suo

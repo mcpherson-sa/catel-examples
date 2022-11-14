@@ -7,6 +7,7 @@
 
 namespace Catel.Examples.NestedUserControls.ViewModels
 {
+    using System;
     using Fody;
     using Models;
     using MVVM;
@@ -21,10 +22,18 @@ namespace Catel.Examples.NestedUserControls.ViewModels
             House = house;
 
             AddRoom = new Command(OnAddRoomExecute, OnAddRoomCanExecute);
+
+            NewHouse = new TaskCommand(async () =>
+            {
+                House = ModelGenerator.GenerateHouse("Duke's House");
+            });
         }
         #endregion
 
         #region Properties
+
+        public TaskCommand NewHouse { get; private set; }
+
         public override string Title
         {
             get { return House.Name; }
@@ -51,6 +60,7 @@ namespace Catel.Examples.NestedUserControls.ViewModels
         [Expose("Rooms")]
         public HouseModel House { get; private set; }
         #endregion
+
         #endregion
     }
 }

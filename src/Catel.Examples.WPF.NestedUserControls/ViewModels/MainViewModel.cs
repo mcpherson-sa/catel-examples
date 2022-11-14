@@ -19,10 +19,14 @@ namespace Catel.Examples.NestedUserControls.ViewModels
             Houses = new ObservableCollection<HouseModel>(ModelGenerator.GenerateHouses());
 
             Title = "Nested User Controls Example";
+
+            NewHouse = new TaskCommand(async () => { Houses[0] = ModelGenerator.GenerateHouse("Duke's House"); });
         }
         #endregion
 
         #region Properties
+        public TaskCommand NewHouse { get; private set; }
+
         public ObservableCollection<HouseModel> Houses { get; private set; }
         #endregion
     }
